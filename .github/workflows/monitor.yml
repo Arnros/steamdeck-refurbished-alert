@@ -1,0 +1,42 @@
+name: Steam Deck Stock Monitor
+
+on:
+  # Exécution toutes les 5 minutes
+  schedule:
+    - cron: '*/5 * * * *'
+
+  # Permet de lancer manuellement
+  workflow_dispatch:
+
+jobs:
+  check-stock:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Check Steam Deck availability
+        env:
+          EMAIL_FROM: ${{ secrets.EMAIL_FROM }}
+          EMAIL_TO: ${{ secrets.EMAIL_TO }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+          COUNTRY_CODE: FR
+        run: python monitor_api.py
+
+      - name: Save state
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: stock-state
+          path: state_*.json
+          retention-days: 7

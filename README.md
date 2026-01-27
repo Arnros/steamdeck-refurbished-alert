@@ -14,7 +14,7 @@ Surveille la disponibilité des Steam Deck reconditionnés via l'API officielle 
 
 ### 1. Configurer Signal avec CallMeBot
 
-1. Ajoute ce numéro à tes contacts Signal : **+34 644 52 74 88**
+1. Ajoute ce numéro à tes contacts Signal : **+34 623 76 13 63**
 2. Envoie-lui ce message : `I allow callmebot to send me messages`
 3. Tu recevras une réponse avec ton **apikey**
 

@@ -18,6 +18,8 @@ Surveille la disponibilité des Steam Deck reconditionnés via l'API officielle 
 2. Envoie-lui ce message : `I allow callmebot to send me messages`
 3. Tu recevras une réponse avec ton **apikey**
 
+Source: https://www.callmebot.com/blog/free-api-signal-send-messages/
+
 ### 2. Configurer les secrets GitHub
 
 Dans ton repo : **Settings** → **Secrets and variables** → **Actions**
